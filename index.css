@@ -1,0 +1,153 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+box-sizing: border-box
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+html {
+box-sizing:border-box
+}
+* {
+box-sizing:inherit
+}
+
+/* END CSS RESET */
+
+.landing-page {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.landing-page figure {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-page figure img {
+    width: 100%;
+}
+
+.over-image {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: calc(3vw + 1vh);
+    font-family: 'Arimo', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: #2a617873;
+}
+
+.panel-cover {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: #d0dae4b0;
+    transition: 1s ease all;
+}
+
+.navigation-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: linear-gradient(to right, #085438, #0b704b);
+    color: white;
+    z-index: 2;
+    transform: translateX(-300px);
+    transition: 1s ease all;
+}
+
+.features {
+    height: 50vh;
+    width: 100vw;
+    z-index: 1;
+}
+
+.slide {
+    transform: translateX(0px);
+    transition: 1s ease all;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: 1s ease all;
+}
+
+#menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#menu-button img {
+    width: 45px;
+    height: 30px;
+}
+
+@media (max-width: 800px) {
+    .landing-page figure img {
+        width: auto;
+        height: 100%;
+    }
+}
