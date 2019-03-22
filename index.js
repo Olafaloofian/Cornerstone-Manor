@@ -10,7 +10,7 @@ const homeHTML = `
                 </div>
             </div>
             <div class='caption lightgreen'>
-                Quiet, fireproof, energy efficient apartments located in the heart of Northwest Mesa.
+                Quiet, fireproof, energy efficient apartments located in the heart of Northwest Mesa, Arizona.
             </div>
             <div class='background-image image-2'></div>
             <div class="caption blue">
@@ -24,7 +24,7 @@ const homeHTML = `
 const contactHTML = `
     <div class='page-container'>
         <div class='menu-bar title'></div>
-        <div class='page-top    '>
+        <div class='page-top'>
             <span class='title'>CONTACT</span>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.928720036603!2d-111.81549668435885!3d33.45116355661152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872ba700e95b4dfb%3A0x4acd31e8a20266d6!2s1955+N+Horne%2C+Mesa%2C+AZ+85203!5e0!3m2!1sen!2sus!4v1553219208915" width="90%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
@@ -260,6 +260,7 @@ const images = {
 let selectedImages = 'community'
 let slideIndex = 1;
 function chooseImageType(type) {
+    slideIndex = 1
     document.getElementById('image-slides').innerHTML = `
         ${images[type].map((image, index) => (`
             <div class="mySlides fade">
@@ -271,7 +272,6 @@ function chooseImageType(type) {
     `
     showSlides(slideIndex);
 }
-// TODO: Make arrow keys control slideshow
 
 const galleryHTML = `
     <div class='page-container'>
@@ -286,18 +286,18 @@ const galleryHTML = `
                 <div onclick='chooseImageType("floorPlanC")'>Floor Plan C</div>
             </div>
             <div class="slideshow-container">
-            <div id='image-slides'>
-                ${images[selectedImages].map((image, index) => (`
-                    <div class="mySlides fade">
-                        <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
-                        <img src=${image.url} style="width:130%">
-                        <div class="text">${image.caption}</div>
-                    </div>
-                `)).join('')}
-            </div>
+                <div id='image-slides'>
+                    ${images[selectedImages].map((image, index) => (`
+                        <div class="mySlides fade">
+                            <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
+                            <img src=${image.url} style="width:100%">
+                            <div class="text">${image.caption}</div>
+                        </div>
+                    `)).join('')}
+                </div>
 
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
         </div>
     </div>
@@ -311,14 +311,18 @@ function routeRender() {
     if(!window.location.hash || path === '#/') {
         document.getElementById('home-nav').style.textDecoration = 'underline'
         routeContainer.innerHTML = homeHTML
+        window.removeEventListener('keydown', arrowControls)
     } else if (path === '#/contact' || path === '#/contact/') {
         document.getElementById('contact-nav').style.textDecoration = 'underline'
         routeContainer.innerHTML = contactHTML
+        window.removeEventListener('keydown', arrowControls)
     } else if (path === '#/gallery' || path === '#/gallery/') {
         document.getElementById('gallery-nav').style.textDecoration = 'underline'
         routeContainer.innerHTML = galleryHTML
         showSlides(slideIndex);
+        window.addEventListener('keydown', arrowControls)
     } else {
+        // The user entered a route that doesn't exist - go back to home page
         window.history.replaceState({location: ''}, '#/', `#/`)
         routeRender()
     }
@@ -326,8 +330,8 @@ function routeRender() {
 
 // Switches routes. Uses hashes to circumvent the browser doing a fetch.
 function changeRoute(route) {
-    // The user is already on the page
-    if(window.location.hash === `#/${route}`) {
+    // The user is already on the page, don't re-render
+    if(window.location.hash === `#/${route}`) { 
         return toggleNav('hide')
     }
     document.getElementById('home-nav').style.textDecoration = 'none'
@@ -342,7 +346,7 @@ function changeRoute(route) {
     }, 500);
 }
 
-// Alters the class of a chose element to do a fade-in and fade-out animation
+// Alters the class of a chose element to do a fade or slide animation
 function toggleElement(element, toggle, type) {
     const chosenElement = document.getElementById(element)
     if (chosenElement.classList) {
@@ -377,6 +381,15 @@ function toggleNav(toggle) {
 }
 
 // Slideshow functions
+
+// Use the left and right arrow keys to control slideshow
+function arrowControls(e) {
+    if(e.keyCode === 39) {
+        plusSlides(1)
+    } else if (e.keyCode === 37) {
+        plusSlides(-1)
+    }
+}
 
 // Next/previous controls
 function plusSlides(n) {
