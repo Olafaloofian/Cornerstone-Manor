@@ -30,7 +30,7 @@ const contactHTML = `
         </div>
         <div class='page-bottom'>
             <span class='accent phone'>(480) 964-5151</span>
-            <span>If you would like to take a tour of one of our apartments or have any questions, please call or visit us and knock on the manager's apartment door (Unit 110). They'd love to talk to you!</span>
+            <span>If you have any questions or would like to take a tour of one of our apartments, please call or visit us and knock on the manager's apartment door (Unit 110). They'd love to talk to you!</span>
             <div class='office-hours'>
                 <div class='accent'>Office Hours</div>
                 <div class='hours-table'>
@@ -258,9 +258,20 @@ const images = {
 
 // For changing the displayed list of images
 let selectedImages = 'community'
+let slideIndex = 1;
 function chooseImageType(type) {
-    selectedImages = type
+    document.getElementById('image-slides').innerHTML = `
+        ${images[type].map((image, index) => (`
+            <div class="mySlides fade">
+                <div class="numbertext">${index+1} / ${images[type].length}</div>
+                <img src=${image.url} style="width:130%">
+                <div class="text">${image.caption}</div>
+            </div>
+        `)).join('')}
+    `
+    showSlides(slideIndex);
 }
+// TODO: Make arrow keys control slideshow
 
 const galleryHTML = `
     <div class='page-container'>
@@ -275,27 +286,23 @@ const galleryHTML = `
                 <div onclick='chooseImageType("floorPlanC")'>Floor Plan C</div>
             </div>
             <div class="slideshow-container">
-            ${images[selectedImages].map((image, index) => (`
-                <div class="mySlides fade">
-                    <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
-                    <img src=${image.url} style="width:130%">
-                    <div class="text">${image.caption}</div>
-                </div>
-            `)).join('')}
+            <div id='image-slides'>
+                ${images[selectedImages].map((image, index) => (`
+                    <div class="mySlides fade">
+                        <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
+                        <img src=${image.url} style="width:130%">
+                        <div class="text">${image.caption}</div>
+                    </div>
+                `)).join('')}
+            </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
-            <br>
-
-            <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span> 
-            <span class="dot" onclick="currentSlide(2)"></span> 
-            <span class="dot" onclick="currentSlide(3)"></span> 
-            </div>
         </div>
     </div>
 `
+
 
 // Handles all the routing rendering functionality
 function routeRender() {
@@ -310,6 +317,7 @@ function routeRender() {
     } else if (path === '#/gallery' || path === '#/gallery/') {
         document.getElementById('gallery-nav').style.textDecoration = 'underline'
         routeContainer.innerHTML = galleryHTML
+        showSlides(slideIndex);
     } else {
         window.history.replaceState({location: ''}, '#/', `#/`)
         routeRender()
@@ -324,6 +332,7 @@ function changeRoute(route) {
     }
     document.getElementById('home-nav').style.textDecoration = 'none'
     document.getElementById('contact-nav').style.textDecoration = 'none'
+    document.getElementById('gallery-nav').style.textDecoration = 'none'
     toggleElement('route-container', 'hide', 'fade')
     window.history.replaceState({location: route}, route, `#/${route}`)
     toggleNav('hide')
@@ -368,8 +377,6 @@ function toggleNav(toggle) {
 }
 
 // Slideshow functions
-let slideIndex = 1;
-showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
@@ -384,17 +391,10 @@ function currentSlide(n) {
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    console.log('------------ slides', slides)
-    var dots = document.getElementsByClassName("dot");
     if (n > slides.length) {slideIndex = 1} 
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none"; 
     }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    console.log('------------ slideIndex', slideIndex)
     slides[slideIndex-1].style.display = "block"; 
-    dots[slideIndex-1].className += " active";
 }
