@@ -50,43 +50,52 @@ box-sizing:inherit
 
 /* END CSS RESET */
 
-.landing-page {
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+/* NAVIGATION STYLING */
 
-.landing-page figure {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.landing-page figure img {
-    width: 100%;
-}
-
-.over-image {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: calc(3vw + 1vh);
-    font-family: 'Arimo', sans-serif;
-    font-weight: 700;
-    text-align: center;
+.navigation-panel {
+    position: fixed;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     left: 0;
+    width: 300px;
     height: 100vh;
-    width: 100vw;
-    background: #2a617873;
+    background: #88a2b9;
+    color: rgb(242, 243, 243);
+    z-index: 2;
+    transform: translateX(-300px);
+    transition: 1s ease all;
+}
+
+.navigation-panel ul {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation-panel li {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 22px;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+
+.navigation-panel li:hover {
+    border: 4px solid rgba(242, 243, 243, 0.377);
+    background: rgba(242, 243, 243, 0.103);
+    transition: 0.3s ease;
 }
 
 .panel-cover {
@@ -102,24 +111,342 @@ box-sizing:inherit
     transition: 1s ease all;
 }
 
-.navigation-panel {
+#menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    cursor: pointer;
+    transform: scale(1);
+    transition: 0.2s;
+}
+
+#menu-button:hover {
+    transform: scale(1.08);
+    transition: 0.2s;
+}
+
+#menu-button img {
+    width: 45px;
+    height: 30px;
+}
+
+
+/* HOME PAGE STYLING */
+
+.over-image {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.over-image span {
+    color: rgb(242, 243, 243);
+    font-size: calc(3vw + 1vh);
+    text-align: center;
+    font-weight: 700;
+    padding: 17px 22px;
+    background: #bacd7473;
+}
+
+.lightblue-transparent {
+    background: #2a617873;
+}
+
+.lightgreen-transparent {
+    background: #86ce7f38;
+}
+
+.caption {
+    height: 350px;
+    font-family: 'Josefin Slab', serif;
+    color: #061726;
+    font-weight: 600;
+    padding: 15px 100px;
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightgreen {
+    background: #c9dac7;
+}
+
+.blue {
+    background: #c9dac7;
+    height: 200px;
+}
+
+.gallery-link {
+    cursor: pointer;
+    color: white;
+    text-decoration: underline;
+    margin-left: 0.5em;
+}
+
+.background-image {
+    position: relative;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.image-1 {
+    background-image: url(./Assets/cactus-2.jpg);
+    background-position: center 60%; 
+    min-height: 100vh;
+}
+
+.image-2 {
+    background-image: url(./Assets/cactus.jpg);
+    background-position: center bottom; 
+    min-height: 500px;
+}
+
+.image-3 {
+    background-image: url(./Assets/mountains.jpg);
+    background-position: center -50%; 
+    min-height: 500px;
+}
+
+/* CONTACT PAGE STYLING */
+
+.office-hours {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 60%;
+    padding: 2%;
+    width: 80%;
+    border: solid #363b3f 3px;
+}
+
+.hours-table {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hours-table > div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.phone {
+    width: 30%;
+    padding: 1.5% 4%;
+    background: #88a2b9;
+    font-size: 30px;
+    font-weight: 600;
+    transform: scale(1);
+    transition: 0.2s;
+}
+
+.phone:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+/* GALLERY STYLING */
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+  /* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* GENERAL STYLING */
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: #d2d4d5;
+}
+
+.menu-bar {
+    height: 70px;
+    width: 100%;
+    background: #c9dac7;
     position: fixed;
     top: 0;
     left: 0;
-    width: 300px;
-    height: 100vh;
-    background: linear-gradient(to right, #085438, #0b704b);
-    color: white;
-    z-index: 2;
-    transform: translateX(-300px);
-    transition: 1s ease all;
+}
+.page-top {
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.features {
-    height: 50vh;
-    width: 100vw;
-    z-index: 1;
+.page-top span {
+    font-size: calc(2vw + 0.8vh);
+    padding: 20px 25px;
+    font-weight: 700;
+    background: #061726c5;
+    margin: 2%;
+    color: rgb(242, 243, 243);
 }
+
+.page-bottom {
+    margin: 2%;
+    width: 90%;
+    height: 60vh;
+    padding: 3% 4%;
+    background: rgb(242, 243, 243);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: #061726;
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 21px;
+    text-align: center;
+}
+
+.page-bottom > div > div:nth-child(1) {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+.outer-container, #route-container {
+    min-height: 100vh;
+}
+
+.accent {
+    font-family: 'Josefin Slab', serif;
+}
+
+.outer-container {
+    background: #d2d4d5;
+}
+
+.route-container {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.title {
+    font-family: 'Arimo', sans-serif;
+}
+
+
+/* RESPONSIVE FIXES */
+
+@media (max-width: 800px) {
+    .landing-page figure img {
+        width: auto;
+        height: 100%;
+    }
+}
+
+/* CSS ANIMATIONS (KEEP AT BOTTOM OF CASCADE) */
 
 .slide {
     transform: translateX(0px);
@@ -130,24 +457,4 @@ box-sizing:inherit
     opacity: 1;
     visibility: visible;
     transition: 1s ease all;
-}
-
-#menu-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1;
-    cursor: pointer;
-}
-
-#menu-button img {
-    width: 45px;
-    height: 30px;
-}
-
-@media (max-width: 800px) {
-    .landing-page figure img {
-        width: auto;
-        height: 100%;
-    }
 }
