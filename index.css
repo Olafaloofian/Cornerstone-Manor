@@ -65,7 +65,7 @@ box-sizing:inherit
     height: 100vh;
     background: #88a2b9;
     color: rgb(242, 243, 243);
-    z-index: 2;
+    z-index: 3;
     transform: translateX(-300px);
     transition: 1s ease all;
 }
@@ -101,7 +101,7 @@ box-sizing:inherit
 }
 
 .panel-cover {
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     top: 0;
     left: 0;
@@ -115,9 +115,9 @@ box-sizing:inherit
 
 #menu-button {
     position: fixed;
+    z-index: 2;
     top: 20px;
     left: 20px;
-    z-index: 1;
     cursor: pointer;
     transform: scale(1);
     transition: 0.2s;
@@ -276,6 +276,7 @@ box-sizing:inherit
 /* Hide the images by default */
 .mySlides {
     display: none;
+    width: 30vw;
 }
 
 /* Next & previous buttons */
@@ -359,6 +360,7 @@ box-sizing:inherit
 
 .menu-bar {
     box-shadow: #0617261a 0px 3px 10px;
+    z-index: 1;
     height: 70px;
     width: 100%;
     background: #c9dac7;

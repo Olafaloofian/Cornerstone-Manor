@@ -265,7 +265,7 @@ function chooseImageType(type) {
         ${images[type].map((image, index) => (`
             <div class="mySlides fade">
                 <div class="numbertext">${index+1} / ${images[type].length}</div>
-                <img src=${image.url} style="width:130%">
+                <img src=${image.url} style="width:100%; height:100%;">
                 <div class="text">${image.caption}</div>
             </div>
         `)).join('')}
@@ -290,7 +290,7 @@ const galleryHTML = `
                     ${images[selectedImages].map((image, index) => (`
                         <div class="mySlides fade">
                             <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
-                            <img src=${image.url} style="width:100%">
+                            <img src=${image.url} style="width:100%; height:100%;">
                             <div class="text">${image.caption}</div>
                         </div>
                     `)).join('')}
@@ -409,5 +409,5 @@ function showSlides(n) {
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none"; 
     }
-    slides[slideIndex-1].style.display = "block"; 
+    slides[slideIndex-1].style.display = "flex"; 
 }
