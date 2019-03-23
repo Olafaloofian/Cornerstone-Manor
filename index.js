@@ -1,4 +1,6 @@
 window.onload = function() {
+    const today = new Date
+    document.getElementById('year').innerHTML = `${today.getFullYear()}`
     routeRender()
     toggleElement('route-container', 'show', 'fade')
 }
@@ -290,8 +292,10 @@ const planCInfo = `
         <li>Large Linen Closet</li>
     </ul>
     <br>
-    <div>1254 Square Feet</div>
-    <div>$950 + tax</div>
+    <div class='prompt accent medium lightgreen'>
+        <div>1254 Square Feet</div>
+        <div>$950 + tax</div>
+    </div>
 `
 
 // For changing the displayed list of images

@@ -357,10 +357,12 @@ box-sizing:inherit
 
 .prev {
     left: -42px;
+    box-shadow: #0617261a 0px 3px 10px;
 }
 
 .next {
     right: -42px;
+    box-shadow: #0617261a 0px 3px 10px;
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -510,6 +512,19 @@ iframe {
 
 .outer-container {
     background: #d2d4d5;
+}
+
+#credits {
+    padding: 5px;
+    display: flex;
+    background: #88a2b938;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#credits a {
+    margin: 0 0.5em;
 }
 
 .route-container {
