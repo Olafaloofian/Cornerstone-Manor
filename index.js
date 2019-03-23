@@ -6,15 +6,15 @@ window.onload = function() {
 const homeHTML = `         
             <div class='background-image image-1'>
                 <div class='over-image lightblue-transparent title'>
-                    <span>WELCOME TO CORNERSTONE MANOR</span>
+                    <h1>WELCOME TO CORNERSTONE MANOR</h1>
                 </div>
             </div>
             <div class='caption lightgreen'>
-                Quiet, fireproof, energy efficient apartments located in the heart of Northwest Mesa, Arizona.
+                <h2>Quiet, fireproof, energy efficient apartments located in the heart of Northwest Mesa, Arizona.</h2>
             </div>
             <div class='background-image image-2'></div>
             <div class="caption blue">
-                Large floor plans with included amenities and facilities - <span title='Go to gallery' class='gallery-link'  onclick="changeRoute('gallery')"> see the gallery for more!</span>
+                <h2>Large floor plans with included amenities and facilities - <span title='Go to Gallery' class='gallery-link'  onclick="changeRoute('gallery')"> see the gallery for more!</span></h2>
             </div>
             <div class="background-image image-3">
                 <div class="over-image lightgreen-transparent"></div>
@@ -25,14 +25,14 @@ const contactHTML = `
     <div class='page-container'>
         <div class='menu-bar title'></div>
         <div class='page-top'>
-            <span class='title'>CONTACT</span>
+            <h1 class='title'>CONTACT</h1>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.928720036603!2d-111.81549668435885!3d33.45116355661152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872ba700e95b4dfb%3A0x4acd31e8a20266d6!2s1955+N+Horne%2C+Mesa%2C+AZ+85203!5e0!3m2!1sen!2sus!4v1553219208915" width="90%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
         <div class='page-bottom'>
-            <span class='accent phone'>(480) 964-5151</span>
+            <span class='accent prompt'>(480) 964-5151</span>
             <span>If you have any questions or would like to take a tour of one of our apartments, please call or visit us and knock on the manager's apartment door (Unit 110). They'd love to talk to you!</span>
             <div class='office-hours'>
-                <div class='accent'>Office Hours</div>
+                <div class='accent large'>Office Hours</div>
                 <div class='hours-table'>
                     <div><div>Monday</div><div>2 pm - 6 pm</div></div>
                     <div><div>Tuesday</div><div>2 pm - 6 pm</div></div>
@@ -256,6 +256,44 @@ const images = {
     ]
 }
 
+// Special information for chosen type
+const communityInfo = `
+    <h2>COMMUNITY FEATURES</h2>
+    <ul>
+        <li>Unique European Architecture</li>
+        <li>Bike Racks</li>
+        <li>Courtyard</li>
+        <li>Fountain</li>
+        <li>Pool</li>
+        <li>Covered Parking Spaces</li>
+    </ul>
+`
+
+const planBInfo = `
+    <h2>FLOOR PLAN B FEATURES</h2>
+    <ul>
+        <li>Walk-In Closet</li>
+        <li>Linen Closet</li>
+        <li>China Hutch</li>
+    </ul>
+    <br>
+    <div class='prompt accent medium lightgreen'>
+        <div>1218 Square Feet</div>
+        <div>$950 + tax</div>
+    </div>
+`
+
+const planCInfo = `
+    <h2>FLOOR PLAN C FEATURES</h2>
+    <ul>
+        <li>Walk-In Closet</li>
+        <li>Large Linen Closet</li>
+    </ul>
+    <br>
+    <div>1254 Square Feet</div>
+    <div>$950 + tax</div>
+`
+
 // For changing the displayed list of images
 let selectedImages = 'community'
 let slideIndex = 1;
@@ -265,11 +303,20 @@ function chooseImageType(type) {
         ${images[type].map((image, index) => (`
             <div class="mySlides fade">
                 <div class="numbertext">${index+1} / ${images[type].length}</div>
-                <img src=${image.url} style="width:100%; height:100%;">
+                <img src=${image.url} style="width:100%; height:100%;" alt='Cornerstone Manor Apartments Mesa Arizona'>
                 <div class="text">${image.caption}</div>
             </div>
         `)).join('')}
     `
+    document.getElementById('image-nav').innerHTML = `
+        <ul>
+            <li onclick='chooseImageType("community")' class=${type === 'community' ? 'selected' : ''}>Community</li>
+            <li onclick='chooseImageType("floorPlanB")' class=${type === 'floorPlanB' ? 'selected' : ''}>Floor Plan B</li>
+            <li onclick='chooseImageType("floorPlanC")' class=${type === 'floorPlanC' ? 'selected' : ''}>Floor Plan C</li>
+        </ul>
+    `
+
+    document.getElementById('specifics').innerHTML = type === "community" ? communityInfo : type === 'floorPlanB' ? planBInfo : type === 'floorPlanC' ? planCInfo : ''
     showSlides(slideIndex);
 }
 
@@ -277,32 +324,59 @@ const galleryHTML = `
     <div class='page-container'>
         <div class='menu-bar title'></div>
         <div class='page-top'>
-            <span class='title'>GALLERY</span>
+            <h1 class='title'>GALLERY</h1>
         </div>
         <div class='page-bottom'>
-            <div class='image-nav'>
-                <div onclick='chooseImageType("community")'>Community</div>
-                <div onclick='chooseImageType("floorPlanB")'>Floor Plan B</div>
-                <div onclick='chooseImageType("floorPlanC")'>Floor Plan C</div>
+            <div id='image-nav' class='image-nav'>
+                <ul>
+                    <li onclick='chooseImageType("community")' class=${selectedImages === 'community' ? 'selected' : ''}>Community</li>
+                    <li onclick='chooseImageType("floorPlanB")' class=${selectedImages === 'floorPlanB' ? 'selected' : ''}>Floor Plan B</li>
+                    <li onclick='chooseImageType("floorPlanC")' class=${selectedImages === 'floorPlanC' ? 'selected' : ''}>Floor Plan C</li>
+                </ul>
             </div>
             <div class="slideshow-container">
                 <div id='image-slides'>
                     ${images[selectedImages].map((image, index) => (`
                         <div class="mySlides fade">
                             <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
-                            <img src=${image.url} style="width:100%; height:100%;">
+                            <img src=${image.url} style="width:100%; height:100%;" alt='Cornerstone Manor Apartments Mesa Arizona'>
                             <div class="text">${image.caption}</div>
                         </div>
                     `)).join('')}
                 </div>
-
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class='info-container'>
+                <div id='specifics'>
+                    ${selectedImages === "community" ? communityInfo : selectedImages === 'floorPlanB' ? planBInfo : selectedImages === 'floorPlanC' ? planCInfo : ''}
+                </div>
+                <h2>EACH APARTMENT INCLUDES</h2>
+                <ul>
+                    <li>Two Full Bathrooms</li>
+                    <li>Two Large Master Bedrooms</li>
+                    <li>Pre-Installed Cable-Ready Wiring</li>
+                    <li>Laundry/Storage Room with Washer + Dryer Hookups</li>
+                    <li>Dishwasher, Stove, and Refrigerator</li>
+                    <li>Dining Room with Ceiling Fan</li>
+                    <li>Private Balcony or Patio</li>
+                    <li>Mirrored Closet Doors</li>
+                    <li>Large Living Room</li>
+                    <li>One Covered Parking Space</li>
+                    <li>One Open Parking Space</li>
+                    <li>NO Extra Charges for Water or Garbage Service</li>
+                </ul>
+                <br>
+                <br>
+                <div class='medium'>Cornerstone Manor apartments are the most affordable \(per square foot\) in Northern Mesa!</div>
+                <div class='medium'>All of our beautiful units have concrete walls floors and ceilings. They are fireproof, very quiet and energy efficient.</div>
+                <br>
+                <div class='small'>Sorry, residents are not permitted to have pets.</div> 
+                <div class='accent contact-link' onclick="changeRoute('contact')" title='Go to Contact Page'>Interested? Click here to contact us!</div>
             </div>
         </div>
     </div>
 `
-
 
 // Handles all the routing rendering functionality
 function routeRender() {
