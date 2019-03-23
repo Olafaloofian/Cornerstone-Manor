@@ -510,6 +510,10 @@ iframe {
     font-weight: 600;
 }
 
+.normalized {
+    text-decoration: none;
+}
+
 .outer-container {
     background: #d2d4d5;
 }
