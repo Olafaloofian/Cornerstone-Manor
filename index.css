@@ -599,8 +599,6 @@ iframe {
 
     .navigation-panel ul {
         position: relative;
-        /* top: 0;
-        left: 0; */
         height: 100%;
     }
 
@@ -610,7 +608,7 @@ iframe {
 
     .prompt {
         width: 80%;
-        font-size: 26px;
+        font-size: 23px;
     }
 
     .office-hours {
@@ -628,6 +626,7 @@ iframe {
     .info-container {
         width: 100%;
         margin-top: 35%;
+        padding: 15px 10px;
     }
 
     .page-bottom {
@@ -640,7 +639,7 @@ iframe {
 
     .contact-link {
         width: 90%;
-        font-size: 26px;
+        font-size: 19px;
     }
 
     .mySlides {
@@ -665,6 +664,10 @@ iframe {
 
     .medium {
         font-size: 18px;
+    }
+
+    .large {
+        font-size: 23px;
     }
 
     #credits {
