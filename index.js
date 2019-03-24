@@ -375,7 +375,7 @@ const galleryHTML = `
                 <div class='medium'>Cornerstone Manor apartments are the most affordable \(per square foot\) in Northern Mesa!</div>
                 <div class='medium'>All of our beautiful units have concrete walls floors and ceilings. They are fireproof, very quiet and energy efficient.</div>
                 <br>
-                <div class='small'>Sorry, residents are not permitted to have pets.</div> 
+                <div class='small'>Sorry, residents are not permitted to have pets. Smoking is never allowed on the premises.</div> 
                 <div class='accent contact-link' onclick="changeRoute('contact')" title='Go to Contact Page'>Interested? Click here to contact us!</div>
             </div>
         </div>
