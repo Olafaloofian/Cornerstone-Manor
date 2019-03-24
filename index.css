@@ -641,6 +641,8 @@ iframe {
     }
 
     .text {
+        left: -41%;
+        width: 100vw;
         font-size: 23px;
         bottom: -17%;
     }
