@@ -165,7 +165,7 @@ box-sizing:inherit
     color: #061726;
     font-weight: 600;
     padding: 15px 100px;
-    font-size: calc(2vw + 1.5vh);
+    font-size: 30px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -494,7 +494,7 @@ iframe {
     justify-content: space-around;
     align-items: center;
     color: #061726;
-    font-size: 21px;
+    font-size: 23px;
     text-align: center;
 }
 
@@ -583,7 +583,8 @@ iframe {
 
 @media (max-width: 880px) {
     .caption {
-        padding: 10px;
+        font-size: 22px;
+        padding: 10px 15px;
     }
 
     .navigation-panel {
@@ -623,11 +624,11 @@ iframe {
     }
 
     .page-bottom {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .info-container h2 {
-        font-size: 21px;
+        font-size: 18px;
     }
 
     .contact-link {
@@ -656,7 +657,11 @@ iframe {
     }
 
     .medium {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    #credits {
+        font-size: 11px;
     }
 }
 
