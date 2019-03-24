@@ -604,6 +604,10 @@ iframe {
         height: 100%;
     }
 
+    .navigation-panel li {
+        height: calc(100% / 3);
+    }
+
     .prompt {
         width: 80%;
         font-size: 26px;
