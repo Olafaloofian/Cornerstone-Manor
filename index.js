@@ -302,6 +302,7 @@ const planCInfo = `
 
 // For changing the displayed list of images
 let selectedImages = 'community'
+let navTutorial = true
 let slideIndex = 1;
 function chooseImageType(type) {
     slideIndex = 1
@@ -326,6 +327,14 @@ function chooseImageType(type) {
     showSlides(slideIndex);
 }
 
+function showNavTutorial() {
+    navTutorial = false
+    toggleElement('nav-tutorial', 'show', 'fade')
+    setTimeout(() => {
+        toggleElement('nav-tutorial', 'hide', 'fade')
+    }, 2500);
+}
+
 const galleryHTML = `
     <div class='page-container'>
         <div class='menu-bar title'></div>
@@ -334,6 +343,7 @@ const galleryHTML = `
         </div>
         <div class='page-bottom'>
             <div id='image-nav' class='image-nav'>
+                <div id='nav-tutorial' class='nav-tutorial'>Make a selection here</div>
                 <ul>
                     <li onclick='chooseImageType("community")' class=${selectedImages === 'community' ? 'selected' : ''}>Community</li>
                     <li onclick='chooseImageType("floorPlanB")' class=${selectedImages === 'floorPlanB' ? 'selected' : ''}>Floor Plan B</li>
@@ -399,6 +409,7 @@ function routeRender() {
     } else if (path === '#/gallery' || path === '#/gallery/') {
         document.getElementById('gallery-nav').style.textDecoration = 'underline'
         routeContainer.innerHTML = galleryHTML
+        if(navTutorial) showNavTutorial();
         showSlides(slideIndex);
         window.addEventListener('keydown', arrowControls)
     } else {

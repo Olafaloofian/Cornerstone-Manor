@@ -244,6 +244,24 @@ box-sizing:inherit
     /* padding: 2%; */
 }
 
+.nav-tutorial {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Josefin Slab', serif;
+    font-size: 26px;
+    background: #b1c1cf;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease;
+}
+
 .image-nav ul {
     display: flex;
     flex-direction: row;
@@ -662,6 +680,10 @@ iframe {
     .image-nav ul {
         flex-direction: column;
         font-size: 20px;
+    }
+
+    .nav-tutorial {
+        font-size: 22px;
     }
 
     .text {
