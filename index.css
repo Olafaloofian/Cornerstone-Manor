@@ -75,7 +75,6 @@ box-sizing:inherit
     height: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 }
 
@@ -187,20 +186,20 @@ box-sizing:inherit
 }
 
 .image-1 {
-    background-image: url(./Assets/cactus-2.jpg);
+    background-image: url(./Assets/Cornerstone-Fountain.jpg);
     background-position: center 60%; 
     min-height: 100vh;
 }
 
 .image-2 {
-    background-image: url(./Assets/cactus.jpg);
+    background-image: url(./Assets/Cornerstone-Bench.jpg);
     background-position: center bottom; 
-    min-height: 500px;
+    min-height: 700px;
 }
 
 .image-3 {
-    background-image: url(./Assets/mountains.jpg);
-    background-position: center -50%; 
+    background-image: url(./Assets/Cornerstone-Sign.jpg);
+    background-position: center bottom; 
     min-height: 500px;
 }
 
@@ -527,13 +526,19 @@ iframe {
     padding: 5px;
     display: flex;
     background: #88a2b938;
+    color: #061726b0;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
 #credits a {
+    color: inherit;
     margin: 0 0.5em;
+}
+
+#year {
+    color: inherit;
 }
 
 .route-container {
@@ -547,6 +552,10 @@ iframe {
 
 .lightgreen-transparent {
     background: #86ce7f38;
+}
+
+.lightteal-transparent {
+    background: #c3f1e238;
 }
 
 .lightgreen {
@@ -569,7 +578,7 @@ iframe {
 
 /* RESPONSIVE FIXES */
 
-@media (max-width: 1380px) {
+@media (max-aspect-ratio: 4/3) {
     .background-image {
         background-size: auto 100%;
     }

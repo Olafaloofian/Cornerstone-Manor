@@ -14,7 +14,9 @@ const homeHTML = `
             <div class='caption lightgreen'>
                 <h2>Quiet, fireproof, energy efficient apartments located in the heart of Northwest Mesa, Arizona.</h2>
             </div>
-            <div class='background-image image-2'></div>
+            <div class='background-image image-2'>
+                <div class="over-image lightteal-transparent"></div>
+            </div>
             <div class="caption blue">
                 <h2>Large floor plans with included amenities and facilities - <span title='Go to Gallery' class='gallery-link'  onclick="changeRoute('gallery')"> see the gallery for more!</span></h2>
             </div>
