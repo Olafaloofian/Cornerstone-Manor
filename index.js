@@ -299,12 +299,31 @@ const planCInfo = `
         <div>$950 + tax</div>
     </div>
 `
+let selectedImages = 'community'
+const imageNavHTML = `
+    <ul>
+        <li onclick='chooseImageType("community")' class=${selectedImages === 'community' ? 'selected' : ''}>Community</li>
+        <li onclick='chooseImageType("floorPlanB")' class=${selectedImages === 'floorPlanB' ? 'selected' : ''}>Floor Plan B</li>
+        <li onclick='chooseImageType("floorPlanC")' class=${selectedImages === 'floorPlanC' ? 'selected' : ''}>Floor Plan C</li>
+    </ul>
+`
+
+const slideShowHTML = `
+    ${images[selectedImages].map((image, index) => (`
+        <div class="mySlides fade">
+            <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
+            <img src=${image.url} style="width:100%; height:100%;" alt='Cornerstone Manor Apartments Mesa Arizona'>
+            <div class="text">${image.caption}</div>
+        </div>
+    `)).join('')}
+`
 
 // For changing the displayed list of images
-let selectedImages = 'community'
 let navTutorial = true
 let slideIndex = 1;
 function chooseImageType(type) {
+    if(selectedImages === type) return
+    selectedImages = type
     slideIndex = 1
     document.getElementById('image-slides').innerHTML = `
         ${images[type].map((image, index) => (`
@@ -322,9 +341,9 @@ function chooseImageType(type) {
             <li onclick='chooseImageType("floorPlanC")' class=${type === 'floorPlanC' ? 'selected' : ''}>Floor Plan C</li>
         </ul>
     `
-
     document.getElementById('specifics').innerHTML = type === "community" ? communityInfo : type === 'floorPlanB' ? planBInfo : type === 'floorPlanC' ? planCInfo : ''
     showSlides(slideIndex);
+    console.log('------------ selectedImages', selectedImages)
 }
 
 function showNavTutorial() {
@@ -344,21 +363,11 @@ const galleryHTML = `
         <div class='page-bottom'>
             <div id='image-nav' class='image-nav'>
                 <div id='nav-tutorial' class='nav-tutorial'>Make a selection here</div>
-                <ul>
-                    <li onclick='chooseImageType("community")' class=${selectedImages === 'community' ? 'selected' : ''}>Community</li>
-                    <li onclick='chooseImageType("floorPlanB")' class=${selectedImages === 'floorPlanB' ? 'selected' : ''}>Floor Plan B</li>
-                    <li onclick='chooseImageType("floorPlanC")' class=${selectedImages === 'floorPlanC' ? 'selected' : ''}>Floor Plan C</li>
-                </ul>
+                ${imageNavHTML}
             </div>
             <div class="slideshow-container">
                 <div id='image-slides'>
-                    ${images[selectedImages].map((image, index) => (`
-                        <div class="mySlides fade">
-                            <div class="numbertext">${index+1} / ${images[selectedImages].length}</div>
-                            <img src=${image.url} style="width:100%; height:100%;" alt='Cornerstone Manor Apartments Mesa Arizona'>
-                            <div class="text">${image.caption}</div>
-                        </div>
-                    `)).join('')}
+                    ${slideShowHTML}
                 </div>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
