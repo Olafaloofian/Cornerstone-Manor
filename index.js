@@ -332,7 +332,7 @@ function showNavTutorial() {
     toggleElement('nav-tutorial', 'show', 'fade')
     setTimeout(() => {
         toggleElement('nav-tutorial', 'hide', 'fade')
-    }, 2500);
+    }, 2000);
 }
 
 const galleryHTML = `
