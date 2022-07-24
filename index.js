@@ -283,7 +283,6 @@ const planBInfo = `
     <br>
     <div class='prompt accent medium lightgreen'>
         <div>1218 Square Feet</div>
-        <div>Starting at $1100</div>
     </div>
 `
 
@@ -296,7 +295,6 @@ const planCInfo = `
     <br>
     <div class='prompt accent medium lightgreen'>
         <div>1254 Square Feet</div>
-        <div>Starting at $1100</div>
     </div>
 `
 let selectedImages = 'community'
