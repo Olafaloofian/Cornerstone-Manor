@@ -612,15 +612,42 @@ iframe {
 }
 
 @media (max-width: 880px) {
+    em {
+        display: block;
+        margin: 0px 40px 8px 40px;
+    }
+
+    .page-top h1 {
+        margin: 30px;
+    }
+
+    #contact-text {
+        padding: 0px 10px 10px 10px;
+        font-size: 19px;
+    }
+
     .caption {
         font-size: 22px;
         padding: 10px 15px;
     }
 
+    .menu-bar {
+        height: 50px;
+    }
+
+    #menu-button {
+        top: 13px;
+    }
+
+    #menu-button img {
+        width: 35px;
+        height: 23px;
+    }
+
     .navigation-panel {
         width: 100vw;
-        height: 300px;
-        transform: translateY(-500px);
+        height: 180px;
+        transform: translateY(-180px);
     }
 
     .slide {
@@ -634,11 +661,13 @@ iframe {
 
     .navigation-panel li {
         height: calc(100% / 3);
+        font-size: 18px;
     }
 
     .prompt {
         width: 80%;
         font-size: 23px;
+        margin-bottom: 30px;
     }
 
     .office-hours {
@@ -656,7 +685,7 @@ iframe {
     .info-container {
         width: 100%;
         margin-top: 35%;
-        padding: 15px 10px;
+        padding: 15px 15px;
     }
 
     .page-bottom {
@@ -670,6 +699,8 @@ iframe {
     .contact-link {
         width: 90%;
         font-size: 19px;
+        padding: 10px 20px;
+        margin-top: 20px;
     }
 
     .mySlides {
