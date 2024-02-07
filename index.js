@@ -32,21 +32,9 @@ const contactHTML = `
             <h1 class='title'>CONTACT</h1>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3328.928720036603!2d-111.81549668435885!3d33.45116355661152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872ba700e95b4dfb%3A0x4acd31e8a20266d6!2s1955+N+Horne%2C+Mesa%2C+AZ+85203!5e0!3m2!1sen!2sus!4v1553219208915" width="90%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
         </div>
-        <div class='page-bottom'>
-            <span class='accent prompt'><a class='normalized' href="tel:14809645151">(480) 964-5151</a></span>
-            <span>If you have any questions or would like to take a tour of one of our apartments, please call or visit us and knock on the manager's apartment door (Unit 110). They'd love to talk to you!</span>
-            <div class='office-hours'>
-                <div class='accent large'>Office Hours</div>
-                <div class='hours-table'>
-                    <div><div>Monday</div><div>2 pm - 6 pm</div></div>
-                    <div><div>Tuesday</div><div>2 pm - 6 pm</div></div>
-                    <div><div>Wednesday</div><div>2 pm - 6 pm</div></div>
-                    <div><div>Thursday</div><div>2 pm - 6 pm</div></div>
-                    <div><div>Friday</div><div>2 pm - 6 pm</div></div>
-                    <div><div>Saturday</div><div>11 am - 3 pm</div></div>
-                    <div><div>Sunday</div><div>CLOSED</div></div>
-                </div>
-            </div>
+        <div class='page-bottom' id="contact-bottom">
+            <span id="contact-text">If you have any questions or would like to take a tour of one of our apartments, please call BPM Management</span>
+            <a href="tel:14809645151" class='accent prompt'>(480) 964-5151</a>
         </div>
     </div>
 `
@@ -265,9 +253,7 @@ const communityInfo = `
     <h2>COMMUNITY FEATURES</h2>
     <ul>
         <li>Unique European Architecture</li>
-        <li>Bike Racks</li>
         <li>Courtyard</li>
-        <li>Fountain</li>
         <li>Pool</li>
         <li>Covered Parking Spaces</li>
     </ul>
@@ -349,7 +335,7 @@ function showNavTutorial() {
     toggleElement('nav-tutorial', 'show', 'fade')
     setTimeout(() => {
         toggleElement('nav-tutorial', 'hide', 'fade')
-    }, 2000);
+    }, 3000);
 }
 
 const galleryHTML = `
@@ -394,7 +380,8 @@ const galleryHTML = `
                 <div class='medium'>Cornerstone Manor apartments are the most affordable \(per square foot\) in Northern Mesa!</div>
                 <div class='medium'>All of our beautiful units have concrete walls floors and ceilings. They are fireproof, very quiet and energy efficient.</div>
                 <br>
-                <div class='small'>Sorry, residents are not permitted to have pets. Smoking is never allowed on the premises.</div> 
+                <div class='medium'><em>Sorry, residents are not permitted to have pets.</em></div>
+                <div class="medium"><em>Smoking is never allowed on the premises.</em></div>
                 <div class='accent contact-link' onclick="changeRoute('contact')" title='Go to Contact Page'>Interested? Click here to contact us!</div>
             </div>
         </div>

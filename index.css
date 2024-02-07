@@ -44,10 +44,13 @@ border-collapse: collapse;
 border-spacing: 0;
 }
 html {
-box-sizing:border-box
+box-sizing:border-box;
+}
+em {
+font-style: italic;
 }
 * {
-box-sizing:inherit
+box-sizing:inherit;
 }
 
 /* END CSS RESET */
@@ -67,7 +70,7 @@ box-sizing:inherit
     background: #88a2b9;
     z-index: 3;
     transform: translateX(-300px);
-    transition: 1s ease all;
+    transition: 0.4s ease all;
 }
 
 .navigation-panel ul {
@@ -205,16 +208,13 @@ box-sizing:inherit
 
 /* CONTACT PAGE STYLING */
 
-.office-hours {
-    margin-top: 7%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 30vh;
-    padding: 2%;
-    width: 80%;
-    border: solid #363b3f 3px;
+#contact-bottom {
+    min-height: 0;
+}
+
+#contact-text {
+    margin: 5% auto 3% auto;
+    font-size: 27px;
 }
 
 .hours-table {
@@ -330,7 +330,7 @@ box-sizing:inherit
 }
 
 .contact-link:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
     transition: 0.2s;
 }
 
@@ -475,7 +475,8 @@ box-sizing:inherit
 }
 
 .prompt {
-    margin: 0 auto 7% auto;
+    margin: 0 auto 5% auto;
+    text-decoration: none;
     width: 30%;
     padding: 1.5% 4%;
     background: #88a2b99c;
@@ -486,8 +487,9 @@ box-sizing:inherit
 }
 
 .prompt:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
     transition: 0.2s;
+    cursor: pointer;
 }
 
 .medium {
@@ -541,6 +543,7 @@ iframe {
 }
 
 #credits {
+    font-size: 14px;
     padding: 5px;
     display: flex;
     background: #88a2b938;
@@ -591,7 +594,7 @@ iframe {
 
 .slide {
     transform: translateX(0px);
-    transition: 1s ease all;
+    transition: 0.4s ease all;
 }
 
 /* RESPONSIVE FIXES */
@@ -713,5 +716,5 @@ iframe {
 .visible {
     opacity: 1;
     visibility: visible;
-    transition: 1s ease all;
+    transition: 0.4s ease all;
 }
