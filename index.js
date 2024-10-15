@@ -46,7 +46,7 @@ const images = {
             caption: 'Entryway'
         },
         {
-            url: "http://1.bp.blogspot.com/_OZCAYOVkpQQ/TS-GySxXkMI/AAAAAAAAACw/2XiEGgLhu1I/s320/DSC07365.JPG",
+            url: "./Assets/Cornerstone-Courtyard-1-Small.jpg",
             caption: 'Courtyard'
         },
         {
@@ -54,20 +54,16 @@ const images = {
             caption: 'Pool'
         },
         {
-            url: "http://4.bp.blogspot.com/_OZCAYOVkpQQ/TS-G1QuteFI/AAAAAAAAAC4/SDq0STjaOwo/s320/DSC07367.JPG",
-            caption: 'Courtyard'
-        },
-        {
             url: "http://1.bp.blogspot.com/_OZCAYOVkpQQ/TS-G2kklSsI/AAAAAAAAAC8/-E8u1usocUE/s320/DSC07368.JPG",
             caption: "Pool"
         },
         {
-            url: "http://1.bp.blogspot.com/_OZCAYOVkpQQ/TS-G4JzcXcI/AAAAAAAAADA/Z-ePG3XuWck/s320/DSC07369.JPG",
-            caption: "Northwest Stairway"
+            url: "./Assets/Cornerstone-Courtyard-2-Small.jpg",
+            caption: "Courtyard"
         },
         {
-            url: "http://4.bp.blogspot.com/_OZCAYOVkpQQ/TS-G5DL-4UI/AAAAAAAAADE/fybrw_UxWjM/s320/DSC07370.JPG",
-            caption: "Courtyard"
+            url: "http://1.bp.blogspot.com/_OZCAYOVkpQQ/TS-G4JzcXcI/AAAAAAAAADA/Z-ePG3XuWck/s320/DSC07369.JPG",
+            caption: "Northwest Stairway"
         }
     ],
     floorPlanB: [
@@ -382,7 +378,7 @@ const galleryHTML = `
                 <br>
                 <div class='medium'><em>Sorry, residents are not permitted to have pets.</em></div>
                 <div class="medium"><em>Smoking is never allowed on the premises.</em></div>
-                <div class='accent contact-link' onclick="changeRoute('contact')" title='Go to Contact Page'>Interested? Click here to contact us!</div>
+                <div class='accent contact-link' onclick="changeRoute('contact')" title='Go to Contact Page'>Interested?<br>Click here to contact us!</div>
             </div>
         </div>
     </div>
@@ -416,7 +412,7 @@ function routeRender() {
 // Switches routes. Uses hashes to circumvent the browser doing a fetch.
 function changeRoute(route) {
     // The user is already on the page, don't re-render
-    if(window.location.hash === `#/${route}`) { 
+    if(window.location.hash === `#/${route}`) {
         return toggleNav('hide')
     }
     document.getElementById('home-nav').style.textDecoration = 'none'
@@ -489,10 +485,10 @@ function currentSlide(n) {
 function showSlides(n) {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {slideIndex = 1} 
+    if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none"; 
+        slides[i].style.display = "none";
     }
-    slides[slideIndex-1].style.display = "flex"; 
+    slides[slideIndex-1].style.display = "flex";
 }
